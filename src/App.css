@@ -1,9 +1,9 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 
 .logo {
   height: 6em;
@@ -39,4 +39,110 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.header{
+  /* border: 2px solid red; */
+  height: 5%;
+  width: 50%;
+
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+input{
+  height: 95%;
+  width: 78%;
+  padding: 10px;
+  text-align: center;
+
+  border-radius: 10px;
+  background-color: hsla(0, 1%, 26%, 0.377);
+  border: 0;
+}
+
+button{
+  width: 18%;
+}
+
+
+.taskList{
+  /* border: 2px solid black; */
+  height: 60%;
+  width: 50%;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* flex-wrap: wrap; */
+
+  /* padding: 20px; */
+}
+
+li{
+  min-height: 100px;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+  /* border: 1px solid red; */
+
+  background-color: hsla(0, 1%, 26%, 0.377);
+
+}
+
+.pink{
+  background-color: pink;
+  color: black;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.taskCard{
+  min-height: 100px;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+  /* border: 1px solid red; */
+
+  background-color: hsla(0, 1%, 26%, 0.377);
+
+  display: flex;
+}
+
+.taskCardLeft{
+  /* border: 2px solid red; */
+  width: 90%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.taskCardRight{
+  height: 100%;
+  width: 10%;
+  background-color: brown;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

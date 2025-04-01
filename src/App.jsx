@@ -4,32 +4,58 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  let [taskList, setTaskList] = useState([])
+  let [currentTask, setCurrentTask] = useState("");
 
+
+  const onTaskChange = (event) => {
+    setCurrentTask(event.target.value);
+  }
+
+  const onButtonClick = () => {
+    if (currentTask != "") {
+      setTaskList([...taskList, currentTask])
+      setCurrentTask("")
+    }
+    else {
+      alert("Please enter a valid task")
+    }
+
+
+  }
+
+  const onTaskClick = (idx) => {
+    setTaskList(taskList.filter((task, i) => { return i != idx }))
+  }
+
+
+  
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='container'>
+        <div className='header'>
+          <input placeholder = "Enter the task" onChange={onTaskChange}  value ={currentTask} type="text" />
+          <button onClick={onButtonClick}>Add Task</button>
+        </div>
+        <ul className='taskList'>
+          {taskList.map((task, idx) => {
+            if (task=="pink"){
+              return (<li className="pink" onClick={() => { onTaskClick(idx,task) }}>{task}</li>)
+            }
+            else{
+              return (<div className='taskCard'>
+                <div className='taskCardLeft'>{task}</div>
+                <div onClick={() => { onTaskClick(idx,task) }} className='taskCardRight'>Delete</div>
+                </div>)
+            }
+            
+          })}
+        </ul>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
+
+
 
 export default App
